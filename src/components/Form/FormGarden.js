@@ -7,7 +7,7 @@ import useStyles from './styles';
 import { createPost, updatePost } from '../../actions/posts';
 
 const FormGarden = ({ currentId, setCurrentId }) => {
-  const [postData, setPostData] = useState({ owner: '', title: '', message: '', tags: '', selectedFile: '' });
+  const [postData, setPostData] = useState({ gardenName: '',gardenYear: '', gardenOwner: '', gardenAddress: '', gardenType:'', gardenSelectedFile: '', gardenTags:'' });
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -19,17 +19,17 @@ const FormGarden = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0)
-    setPostData({ owner: '', title: '', message: '', tags: '', selectedFile: '' });
+    setPostData({ gardenName: '',gardenOwner:'', gardenYear: '', gardenAddress: '', gardenType:'', gardenSelectedFile: '', gardenTags:'' });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createPost({...postData, name : user?.result?.acName, createdBy: user?.result?._id }));
+      dispatch(createPost({...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
       clear();
     } else {
-      dispatch(updatePost(currentId, {...postData, name : user?.result?.acName, createdBy: user?.result?._id }));
+      dispatch(updatePost(currentId, {...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
       clear(); 
     }
   };
@@ -47,12 +47,14 @@ const FormGarden = ({ currentId, setCurrentId }) => {
   return (
     <Paper className={classes.paper}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Garden'}</Typography>
-        <TextField name="owner" variant="outlined" label="Owner" fullWidth value={postData.owner} onChange={(e) => setPostData({ ...postData, owner: e.target.value })} />
-        <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
-        <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
-        <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
-        <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
+        <Typography variant="h6">{currentId ? `Editing "${post.gardenName}"` : 'Creating a Garden'}</Typography>
+        <TextField name="gardenOwner" variant="outlined" label="Owner" fullWidth value={postData.gardenOwner} onChange={(e) => setPostData({ ...postData, gardenOwner: e.target.value })} />
+        <TextField name="gardenName" variant="outlined" label="Name" fullWidth value={postData.gardenName} onChange={(e) => setPostData({ ...postData, gardenName: e.target.value })} />
+        <TextField name="gardenAddress" variant="outlined" label="Adress" fullWidth multiline rows={4} value={postData.gardenAddress} onChange={(e) => setPostData({ ...postData, gardenAddress: e.target.value })} />
+        <TextField name="gardenYear" variant="outlined" label="Year" fullWidth value={postData.gardenYear} onChange={(e) => setPostData({ ...postData, gardenYear: e.target.value })} />
+        <TextField name="gardenType" variant="outlined" label="Type" fullWidth value={postData.gardenType} onChange={(e) => setPostData({ ...postData, gardenType: e.target.value })} />
+        <TextField name="gardenTags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.gardenTags} onChange={(e) => setPostData({ ...postData, gardenTags: e.target.value.split(',') })} />
+        <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, gardenSelectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
         <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
       </form>

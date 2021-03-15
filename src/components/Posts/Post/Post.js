@@ -20,12 +20,12 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.media} image={post?.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
+      <CardMedia className={classes.media} image={post?.gardenSelectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
       <div className={classes.overlay}>
-        <Typography variant="h6">{post?.name}</Typography>
-        <Typography variant="body2">{moment(post?.createdAt).fromNow()}</Typography>
+        <Typography variant="h6">{post?.gardenCreatedByName}</Typography>
+        <Typography variant="body2">{moment(post?.gardenCreatedAt).fromNow()}</Typography>
       </div>
-      {user?.result?._id === post?.createdBy ? 
+      {user?.result?._id === post?.gardenCreatedBy ? 
         <div className={classes.overlay2}>
           <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post?._id)}><MoreHorizIcon fontSize="default" /></Button>
         </div>
@@ -34,15 +34,18 @@ const Post = ({ post, setCurrentId }) => {
       
 
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2">{post?.tags?.map((tag) => `#${tag} `)}</Typography>
+        <Typography variant="body2" color="textSecondary" component="h2">{post?.gardenTags?.map((tag) => `#${tag} `)}</Typography>
       </div>
-      <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post?.title}</Typography>
+      <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post?.gardenName}</Typography>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">{post?.message}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Type: {post?.gardenType}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Adress: {post?.gardenAddress}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Year: {post?.gardenYear}</Typography>
+
       </CardContent>
       <CardActions className={classes.cardActions}>
         { (user?.result) && (
-          <Button size="small" color="primary" onClick={() => dispatch(likePost(post?._id))}><ThumbUpAltIcon fontSize="small" /> Like {post?.likes?.length-1} </Button>
+          <Button size="small" color="primary" onClick={() => dispatch(likePost(post?._id))}><ThumbUpAltIcon fontSize="small" /> Like {post?.gardenLikes?.length-1} </Button>
         )}
         { (user?.result?.name === post?.name) && (
           
