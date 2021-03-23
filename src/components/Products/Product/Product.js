@@ -32,6 +32,12 @@ const Product = ({ product, setCurrentId, setisShow, isShow, setproId }) => {
         <Typography variant="body2" color="textSecondary" component="p">Cách sử dụng: {product.productPackaging}</Typography>
         <Typography variant="body2" color="textSecondary" component="p">Cách đóng gói: {product.productUsing}</Typography>
         <Typography variant="body2" color="textSecondary" component="p">Cách bảo quản: {product.productPreservation}</Typography>
+        <br/>
+          {product.productURL ? (
+            <a href={product.productURL} download>
+                <img src={product.productURL} alt="img"/>
+            </a>) : null}
+        <br/>
       </CardContent>
 
     </Card>

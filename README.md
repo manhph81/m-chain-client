@@ -13,6 +13,29 @@ distributor@gmail.com		123456
 retailer@gmail.com		123456
 consumer@gmail.com		123456
 
+# Client
+
+npx create-react-app ./
+
+npm i axios moment react-file-base64 redux redux-thunk
+npm i @material-ui/core @material-ui/icons @material-ui/lab
+npm install --save redux react-redux
+npm i react-router-dom 
+npm i jwt-decode react-google-login
+npm i qrcode
+npm i react-qr-reader
+
+# Server
+npm init -y
+npm i body-parser cors express mongoose nodemon
+npm i bcryptjs jsonwebtoken
+
+file package.json add:
+
+	"type": "module",
+	"scripts": {
+	"start": "nodemon index.js"
+	},
 
 
 # Getting Started with Create React App

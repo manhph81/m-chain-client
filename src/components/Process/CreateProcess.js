@@ -16,6 +16,8 @@ const CreateProcess = (location) => {
     useEffect(() => {
         dispatch(getProcess());
     }, [productId, dispatch]);
+
+    
     return (
        
         <Grow in>

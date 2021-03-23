@@ -5,13 +5,14 @@ import FileBase from 'react-file-base64';
 
 import useStyles from './styles';
 import { createProduct, updateProducts } from '../../actions/products';
+import { getPosts } from '../../actions/posts'
 
 
 
 const FormProduct = ({ currentId, setCurrentId }) => {
-  const [productData, setProductData] = useState({ productName: '', productGarden: '', productPackaging: '',productUsing:'', productPreservation:'',productComposition: '', productType :'',productSelectedFile: '' });
+  const [productData, setProductData] = useState({ productName: '', productGarden: '', productPackaging: '',productUsing:'', productPreservation:'',productComposition: '', productType :'',productSelectedFile: '', productURL:'' });
   const product = useSelector((state) => (currentId ? state.products.find((message) => message._id === currentId) : null));
-  const gardens = useSelector((state)=>  state.posts)
+  const gardens = useSelector((state)=>  state?.posts)
   const dispatch = useDispatch();
   
   const classes = useStyles();
@@ -20,6 +21,7 @@ const FormProduct = ({ currentId, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'))
 
   useEffect(() => {
+    dispatch(getPosts());
     if (product) {
       setProductData(product);
     }
@@ -27,7 +29,7 @@ const FormProduct = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setProductData({ productName: ' ', productGarden: ' ', productPackaging: ' ',productUsing:'', productPreservation:'',productComposition: '', productType :'',productSelectedFile: '' });
+    setProductData({ productName: ' ', productGarden: ' ', productPackaging: ' ',productUsing:'', productPreservation:'',productComposition: '', productType :'',productSelectedFile: '', productURL:''  });
   };
 
   const handleChange=(e)=>{
@@ -44,6 +46,7 @@ const FormProduct = ({ currentId, setCurrentId }) => {
       clear();
     }
   };
+
 
   if(!user?.result?.acName){
     return(
@@ -65,7 +68,7 @@ const FormProduct = ({ currentId, setCurrentId }) => {
               onChange={handleChange}
               variant = "outlined"
               fullWidth
-              value ={productData.productGarden}
+              value ={productData?.productGarden}
               InputProps={{
                 endAdornment: (
                   <datalist id="productGarden">{
