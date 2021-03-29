@@ -31,3 +31,6 @@ export const fetchProcess = () => API.get('/process');
 export const createProcess = (newProcess) => API.post('/process', newProcess);
 export const updateProcess = (id, updatedProcess) => API.patch(`/process/${id}`, updatedProcess);
 export const deleteProcess = (id) => API.delete(`/process/${id}`);
+//api transaction
+export const fetchTransaction = () => API.get('/transaction');
+export const createTransaction = (newTransaction) => API.post('/transaction', newTransaction);

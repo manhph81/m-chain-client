@@ -5,6 +5,7 @@ import QrReader from 'react-qr-reader';
 
 import useStyles from './styles';
 import { getProduct  } from '../../actions/products';
+import { createTransaction  } from '../../actions/transaction';
 
 
 
@@ -14,6 +15,7 @@ const FormFind = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const qrRef = useRef(null);
+  const user = JSON.parse(localStorage.getItem('profile'))
 
   const clear = () => {
     setProductData({ content: ' ' });
@@ -25,7 +27,8 @@ const FormFind = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(productData.content){
-      dispatch(getProduct(productData.content));
+      // dispatch(getProduct(productData.content));
+      dispatch(createTransaction({transactionCreatedByName : user?.result?.acName, transactionCreatedBy: user?.result?._id }));
     }
     clear()
   };

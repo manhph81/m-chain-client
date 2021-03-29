@@ -18,3 +18,7 @@ export const FETCH_ALL_PROCESS = 'FETCH_ALL_PROCESS';
 
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
+
+export const FETCH_ALL_TRANSACTION = 'FETCH_ALL_TRANSACTION';
+export const CREATE_TRANSACTION = 'CREATE_TRANSACTION';
+

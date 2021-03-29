@@ -9,6 +9,8 @@ import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { createTransaction } from '../../actions/transaction';
+import { useDispatch } from 'react-redux';
 
 const StyledMenu = withStyles({
   paper: {
@@ -42,8 +44,10 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
+
 export default function MenuEdit({setCurrentId, id, setisShow, setproId}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
 
   const user = JSON.parse(localStorage.getItem('profile'))
   
@@ -56,10 +60,10 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId}) {
     setAnchorEl(null);
   };
 
-  // const buyProductDis = () => {
-  //   window.alert('Distributor buy success')
-  //   setproId(id)
-  // };
+  const buyProductDis = (e) => {
+    console.log('run')
+    // dispatch(createTransaction({transactionCreatedByName : user?.result?.acName, transactionCreatedBy: user?.result?._id }));
+  };
 
   // const buyProductRetailer = () => {
   //   window.alert('Retailer buy success')
@@ -104,12 +108,14 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId}) {
         {
           user?.result?.acType === "Distributor" || user?.result?.acType === 'admin' ? 
             <div>
-              <StyledMenuItem  > 
+
+              <StyledMenuItem> 
                 <ListItemIcon>
                   <DraftsIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText primary="Buy Product "/>
+                <ListItemText primary="Buy Product" onClick={buyProductDis()} />
               </StyledMenuItem>
+
               <StyledMenuItem  component={Link} to={ {pathname:`/CreateProcess/${id}`} }  > 
                 <ListItemIcon>
                   <DraftsIcon fontSize="small" />
