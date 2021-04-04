@@ -5,9 +5,9 @@ import moment from 'moment';
 
 import useStyles from './styles';
 
-const Pro = ({ pro, productId }) => {
+const Pro = ({ pro }) => {
   const classes = useStyles();
-
+  console.log(pro)
   const editPro = () =>{
   }
 
@@ -26,7 +26,8 @@ const Pro = ({ pro, productId }) => {
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{pro.processName}</Typography>
 
       <CardContent>
-      <Typography variant="body2" color="textSecondary" component="p">Loại: {pro.processType}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Detail: {pro.processDetail}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Loại: {pro.processType}</Typography>
       </CardContent>
 
     </Card>

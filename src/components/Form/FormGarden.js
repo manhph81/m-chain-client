@@ -48,11 +48,11 @@ const FormGarden = ({ currentId, setCurrentId }) => {
     <Paper className={classes.paper}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant="h6">{currentId ? `Editing "${post.gardenName}"` : 'Creating a Garden'}</Typography>
-        <TextField name="gardenOwner" variant="outlined" label="Owner" fullWidth value={postData.gardenOwner} onChange={(e) => setPostData({ ...postData, gardenOwner: e.target.value })} />
-        <TextField name="gardenName" variant="outlined" label="Name" fullWidth value={postData.gardenName} onChange={(e) => setPostData({ ...postData, gardenName: e.target.value })} />
-        <TextField name="gardenAddress" variant="outlined" label="Adress" fullWidth multiline rows={4} value={postData.gardenAddress} onChange={(e) => setPostData({ ...postData, gardenAddress: e.target.value })} />
-        <TextField name="gardenYear" variant="outlined" label="Year" fullWidth value={postData.gardenYear} onChange={(e) => setPostData({ ...postData, gardenYear: e.target.value })} />
-        <TextField name="gardenType" variant="outlined" label="Type" fullWidth value={postData.gardenType} onChange={(e) => setPostData({ ...postData, gardenType: e.target.value })} />
+        <TextField name="gardenOwner" variant="outlined" label="Garden Owner" fullWidth value={postData.gardenOwner} onChange={(e) => setPostData({ ...postData, gardenOwner: e.target.value })} />
+        <TextField name="gardenName" variant="outlined" label="Garden Name" fullWidth value={postData.gardenName} onChange={(e) => setPostData({ ...postData, gardenName: e.target.value })} />
+        <TextField name="gardenAddress" variant="outlined" label="Garden Adress" fullWidth multiline rows={4} value={postData.gardenAddress} onChange={(e) => setPostData({ ...postData, gardenAddress: e.target.value })} />
+        <TextField name="gardenYear" variant="outlined" label="Garden Year" fullWidth value={postData.gardenYear} onChange={(e) => setPostData({ ...postData, gardenYear: e.target.value })} />
+        <TextField name="gardenType" variant="outlined" label="Garden Type" fullWidth value={postData.gardenType} onChange={(e) => setPostData({ ...postData, gardenType: e.target.value })} />
         <TextField name="gardenTags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.gardenTags} onChange={(e) => setPostData({ ...postData, gardenTags: e.target.value.split(',') })} />
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, gardenSelectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>

@@ -26,7 +26,7 @@ const FormProcess = ({ productId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(productId!==0){
-      dispatch(createProcess({...processData, processOwner : user?.result?.acName, processType : user?.result?.acType , productId:productId }));
+      dispatch(createProcess({...processData, processOwner : user?.result?.acName, processOwnerId : user?.result?._id, processType : user?.result?.acType , productId:productId }));
       clear();
     }
   };

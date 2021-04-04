@@ -46,7 +46,8 @@ const FormProfile = ({ currentId, setCurrentId }) => {
         <TextField name="email" variant="outlined" label="Email" fullWidth value={user?.result?.email} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField name="adress" variant="outlined" label="Adress" fullWidth multiline rows={4} value={user?.result?.adress} onChange={(e) => setPostData({ ...postData, adress: e.target.value })} />
         <TextField name="phone" variant="outlined" label="Phone" fullWidth multiline rows={4} value={user?.result?.phone} onChange={(e) => setPostData({ ...postData, phone: e.target.value })} />
-      
+        <TextField name="publicKey" disabled='true' variant="outlined" label="PublicKey" fullWidth multiline rows={4} value={ user?.result?.acPublicKey} onChange={(e) => setPostData({ ...postData, phone: e.target.value })} />
+        <TextField name="privateKey" disabled='true' variant="outlined" label="PrivateKey" fullWidth multiline rows={4} value={user?.result?.acPrivateKey} onChange={(e) => setPostData({ ...postData, phone: e.target.value })} />
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, acSelectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
       </form>

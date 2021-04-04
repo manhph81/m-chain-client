@@ -9,8 +9,11 @@ import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { createTransaction } from '../../actions/transaction';
+import { createTransactionB2B } from '../../actions/transaction';
+import { updateProducts } from '../../actions/products';
 import { useDispatch } from 'react-redux';
+
+
 
 const StyledMenu = withStyles({
   paper: {
@@ -45,8 +48,9 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 
-export default function MenuEdit({setCurrentId, id, setisShow, setproId}) {
+export default function MenuEdit({setCurrentId, id, setisShow, setproId, owner, product}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   const dispatch = useDispatch();
 
   const user = JSON.parse(localStorage.getItem('profile'))
@@ -60,15 +64,19 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId}) {
     setAnchorEl(null);
   };
 
-  const buyProductDis = (e) => {
-    console.log('run')
-    // dispatch(createTransaction({transactionCreatedByName : user?.result?.acName, transactionCreatedBy: user?.result?._id }));
+  const buyProduct = (e) => {
+    e.preventDefault();
+    if (id === 0) {
+      // dispatch(createPost({...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
+    } else {
+      dispatch(updateProducts(id, { productOwnerId : user?.result?._id, productOwner : user?.result?.acName,  productPlace : user?.result?.acType} ))
+      dispatch(createTransactionB2B(product, user?.result))
+      window.alert('Buy success')
+      window.location.reload()
+    }
+    
+   
   };
-
-  // const buyProductRetailer = () => {
-  //   window.alert('Retailer buy success')
-  //   setproId(id)
-  // };
 
   return (
     <div>
@@ -108,20 +116,23 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId}) {
         {
           user?.result?.acType === "Distributor" || user?.result?.acType === 'admin' ? 
             <div>
-
-              <StyledMenuItem> 
-                <ListItemIcon>
-                  <DraftsIcon fontSize="small" />
-                </ListItemIcon>
-                <ListItemText primary="Buy Product" onClick={buyProductDis()} />
-              </StyledMenuItem>
-
+              {user?.result?._id !== owner ? 
+                <StyledMenuItem onClick={buyProduct}> 
+                  <ListItemIcon>
+                    <DraftsIcon fontSize="small" />
+                  </ListItemIcon>
+                  <ListItemText primary="Buy Product">
+                  </ListItemText>
+                </StyledMenuItem>
+              : 
               <StyledMenuItem  component={Link} to={ {pathname:`/CreateProcess/${id}`} }  > 
                 <ListItemIcon>
                   <DraftsIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText primary="Create Process "/>
-              </StyledMenuItem>
+              </StyledMenuItem>          
+              }
+              
             </div>
           : null
         }
@@ -129,18 +140,24 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId}) {
         {
           user?.result?.acType === "Retailer" || user?.result?.acType === 'admin' ? 
             <div>
-                <StyledMenuItem  > 
-                  <ListItemIcon>
-                    <DraftsIcon fontSize="small" />
-                  </ListItemIcon>
-                  <ListItemText primary="Buy Product "/>
-                </StyledMenuItem>
+                {user?.result?._id !== owner ? 
+                  <StyledMenuItem onClick={buyProduct}> 
+                    <ListItemIcon>
+                      <DraftsIcon fontSize="small" />
+                    </ListItemIcon>
+                    <ListItemText primary="Buy Product">
+                    </ListItemText>
+                  </StyledMenuItem>
+                : 
                 <StyledMenuItem  component={Link} to={ {pathname:`/CreateProcess/${id}`} }  > 
                   <ListItemIcon>
                     <DraftsIcon fontSize="small" />
                   </ListItemIcon>
                   <ListItemText primary="Create Process "/>
                 </StyledMenuItem>
+                
+                }
+                
               </div>
           : null
         }

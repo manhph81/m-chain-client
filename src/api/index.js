@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API = axios.create({baseURL:'https://m-chain-server.herokuapp.com/'})
-// const API = axios.create({baseURL:'http://localhost:5000/'})
+// const API = axios.create({baseURL:'https://m-chain-server.herokuapp.com/'})
+const API = axios.create({baseURL:'http://localhost:5000/'})
 
 API.interceptors.request.use((req)=>{
     if(localStorage.getItem('profile')){
@@ -28,9 +28,12 @@ export const signin=(formData) =>API.post('/users/signin',formData)
 export const signup=(formData) =>API.post('/users/signup',formData)
 //api actor - process
 export const fetchProcess = () => API.get('/process');
+export const fetchPro = (id) => API.get(`/process/${id}`);
 export const createProcess = (newProcess) => API.post('/process', newProcess);
 export const updateProcess = (id, updatedProcess) => API.patch(`/process/${id}`, updatedProcess);
 export const deleteProcess = (id) => API.delete(`/process/${id}`);
 //api transaction
-export const fetchTransaction = () => API.get('/transaction');
-export const createTransaction = (newTransaction) => API.post('/transaction', newTransaction);
+export const fetchTransactions = () => API.get('/transaction');
+export const fetchTransaction = (id) => API.get(`/transaction/${id}`);
+export const createTransaction = (transaction) => API.post('/transaction',transaction);
+export const createTransactionB2B = (transaction) => API.post('/transaction/B2B',transaction);

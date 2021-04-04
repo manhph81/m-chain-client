@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import DeleteIcon from '@material-ui/icons/Delete';
+// import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+// import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { likePost, deletePost } from '../../../actions/posts';
+// import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
 
 const Post = ({ post, setCurrentId }) => {
@@ -14,9 +14,9 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'))
 
-  const isConfirmDelete = () =>{
-    if(window.confirm('Delete the item?')) dispatch(deletePost(post._id))
-  }
+  // const isConfirmDelete = () =>{
+  //   if(window.confirm('Delete the item?')) dispatch(deletePost(post._id))
+  // }
 
   return (
     <Card className={classes.card}>
@@ -44,13 +44,13 @@ const Post = ({ post, setCurrentId }) => {
 
       </CardContent>
       <CardActions className={classes.cardActions}>
-        { (user?.result) && (
+        {/* { (user?.result) && (
           <Button size="small" color="primary" onClick={() => dispatch(likePost(post?._id))}><ThumbUpAltIcon fontSize="small" /> Like {post?.gardenLikes?.length-1} </Button>
         )}
         { (user?.result?.name === post?.name) && (
           
           <Button size="small" color="primary" onClick={isConfirmDelete}><DeleteIcon fontSize="small" /> Delete</Button>
-        )}
+        )} */}
       </CardActions>
     </Card>
   );

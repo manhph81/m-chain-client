@@ -4,10 +4,7 @@ import { useDispatch } from 'react-redux';
 import QrReader from 'react-qr-reader';
 
 import useStyles from './styles';
-import { getProduct  } from '../../actions/products';
-import { createTransaction  } from '../../actions/transaction';
-
-
+import { getTransaction  } from '../../actions/transaction';
 
 const FormFind = () => {
   const [productData, setProductData] = useState({ content: ''});
@@ -15,7 +12,6 @@ const FormFind = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const qrRef = useRef(null);
-  const user = JSON.parse(localStorage.getItem('profile'))
 
   const clear = () => {
     setProductData({ content: ' ' });
@@ -27,17 +23,16 @@ const FormFind = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(productData.content){
-      // dispatch(getProduct(productData.content));
-      dispatch(createTransaction({transactionCreatedByName : user?.result?.acName, transactionCreatedBy: user?.result?._id }));
+      await dispatch(getTransaction(productData.content));
     }
     clear()
   };
   const showScanQR = () =>{
-    setIsShow(1)
+    isShow === 0 ? setIsShow(1) : setIsShow(0)
   }
 
   const showScanQRWebcam = () =>{
-    setIsShow(2)
+    isShow === 0 ? setIsShow(2) : setIsShow(0)
   }
 
   const handleErrorFile = (error) => {

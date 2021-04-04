@@ -1,13 +1,15 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography } from '@material-ui/core/';
+
 import moment from 'moment';
-
 import useStyles from './styles';
-
 import MenuEdit from '../../Menu/MenuEdit'
+
 
 const Product = ({ product, setCurrentId, setisShow, isShow, setproId }) => {
   const classes = useStyles();
+  // const user = JSON.parse(localStorage.getItem('profile'))
+
 
   return (
     <Card className={classes.card}>
@@ -18,7 +20,7 @@ const Product = ({ product, setCurrentId, setisShow, isShow, setproId }) => {
       </div>
 
       <div className={classes.overlay2}>
-        <MenuEdit setCurrentId = {setCurrentId} id ={product._id} setisShow={setisShow} setproId={setproId} ></MenuEdit>
+        <MenuEdit setCurrentId = {setCurrentId} id ={product._id} setisShow={setisShow} setproId={setproId} owner ={product.productOwnerId} product={product}></MenuEdit>
       </div>
 
       <div className={classes.details}>

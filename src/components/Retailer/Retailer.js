@@ -3,7 +3,7 @@ import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
 import Products from '../Products/Products';
-import FormFind from '../Form/FormFind';
+// import FormFind from '../Form/FormFind';
 import { getProducts } from '../../actions/products';
 
 const Retailer = () => {
@@ -22,7 +22,7 @@ const Retailer = () => {
                         <Products setCurrentId={setCurrentId} />
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <FormFind currentId={currentId} setCurrentId={setCurrentId} />
+                        {/* <FormFind currentId={currentId} setCurrentId={setCurrentId} /> */}
                     </Grid>
                 </Grid>
             </Container>
