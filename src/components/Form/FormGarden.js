@@ -26,10 +26,10 @@ const FormGarden = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createPost({...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
+      await dispatch(createPost({...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
       clear();
     } else {
-      dispatch(updatePost(currentId, {...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
+      await dispatch(updatePost(currentId, {...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
       clear(); 
     }
   };

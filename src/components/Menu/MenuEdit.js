@@ -69,10 +69,10 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId, owner, 
     if (id === 0) {
       // dispatch(createPost({...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
     } else {
-      dispatch(updateProducts(id, { productOwnerId : user?.result?._id, productOwner : user?.result?.acName,  productPlace : user?.result?.acType} ))
-      dispatch(createTransactionB2B(product, user?.result))
+      await dispatch(createTransactionB2B(product, user?.result))
+      await dispatch(updateProducts(id, { productOwnerId : user?.result?._id, productOwner : user?.result?.acName,  productPlace : user?.result?.acType} ))
       window.alert('Buy success')
-      window.location.reload()
+      window.location.reload()  
     }
     
    

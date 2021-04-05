@@ -39,12 +39,11 @@ const FormProduct = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createProduct({...productData,productPlace:  user?.result?.acType, productOwner : user?.result?.acName, productOwnerId : user?.result?._id}));
-      
+      await dispatch(createProduct({...productData,productPlace:  user?.result?.acType, productOwner : user?.result?.acName, productOwnerId : user?.result?._id}));
       window.location.reload()
       clear();
     } else {
-      dispatch(updateProducts(currentId, {...productData, productOwner : user?.result?.acName, productOwnerId : user?.result?._id}));
+      await dispatch(updateProducts(currentId, {...productData, productOwner : user?.result?.acName, productOwnerId : user?.result?._id}));
       clear();
     }
     

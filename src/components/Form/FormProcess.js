@@ -26,7 +26,7 @@ const FormProcess = ({ productId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(productId!==0){
-      dispatch(createProcess({...processData, processOwner : user?.result?.acName, processOwnerId : user?.result?._id, processType : user?.result?.acType , productId:productId }));
+      await dispatch(createProcess({...processData, processOwner : user?.result?.acName, processOwnerId : user?.result?._id, processType : user?.result?.acType , productId:productId }));
       clear();
     }
   };
@@ -44,7 +44,7 @@ const FormProcess = ({ productId }) => {
       <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
           <Typography variant="h6">Quy trình sản xuất</Typography>
-          <TextField name="processName" variant="outlined" label="Tên quy trình" fullWidth value={processData?.processName} onChange={handleChange} />
+          <TextField name="processName" variant="outlined" label="Name" fullWidth value={processData?.processName} onChange={handleChange} />
 
           <TextField name="processDetail" variant="outlined" label="Detail" fullWidth multiline rows={4} value={processData?.processDetail} onChange={handleChange} />
           

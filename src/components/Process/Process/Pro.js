@@ -7,7 +7,6 @@ import useStyles from './styles';
 
 const Pro = ({ pro }) => {
   const classes = useStyles();
-  console.log(pro)
   const editPro = () =>{
   }
 
