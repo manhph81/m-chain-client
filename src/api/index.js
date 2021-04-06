@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API = axios.create({baseURL:'https://m-chain-server.herokuapp.com/'})
-// const API = axios.create({baseURL:'http://localhost:5000/'})
+// const API = axios.create({baseURL:'https://m-chain-server.herokuapp.com/'})
+const API = axios.create({baseURL:'http://localhost:5000/'})
 
 API.interceptors.request.use((req)=>{
     if(localStorage.getItem('profile')){
@@ -26,6 +26,7 @@ export const deleteProducts = (id) => API.delete(`/products/${id}`);
 // api auth
 export const signin=(formData) =>API.post('/users/signin',formData)
 export const signup=(formData) =>API.post('/users/signup',formData)
+export const updateUser = (id, updatedUser) => API.patch(`/users/${id}`, updatedUser);
 //api actor - process
 export const fetchProcess = () => API.get('/process');
 export const fetchPro = (id) => API.get(`/process/${id}`);

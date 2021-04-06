@@ -34,7 +34,7 @@ const FormProduct = ({ currentId, setCurrentId }) => {
 
   const handleChange=(e)=>{
     setProductData({ ...productData, [e.target.name] : e.target.value })
-}
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
 

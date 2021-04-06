@@ -18,6 +18,7 @@ export const FETCH_ALL_PROCESS = 'FETCH_ALL_PROCESS';
 export const FETCH_PROCESS = 'FETCH_PROCESS';
 
 export const AUTH = 'AUTH';
+export const UPDATE_USER = 'UPDATE_USER';
 export const LOGOUT = 'LOGOUT';
 
 export const FETCH_ALL_TRANSACTION = 'FETCH_ALL_TRANSACTION';

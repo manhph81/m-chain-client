@@ -51,8 +51,8 @@ const Navbar = () => {
             <Toolbar className={classes.toolbar}>
                 {user ? (
                     <div className={classes.profile}>
-                        <Avatar className={classes.purple} alt={user.result.acName} src={user.result.imageUrl}>{user.result.acName?.charAt(0)}</Avatar>
-                        <Typography  className={classes.userName} variant="h6" align="center">{user.result.acName}</Typography>
+                        <Avatar className={classes.purple} alt={user?.result?.acName} src={user?.result?.imageUrl}>{user?.result?.acName?.charAt(0)}</Avatar>
+                        <Typography  className={classes.userName} variant="h6" align="center">{user?.result?.acName}</Typography>
                         <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}> Log out</Button>
                     </div>
                 ) :

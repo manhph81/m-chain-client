@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/Supplier" exact component={Supplier}></Route>
           <Route path="/auth" exact component={Auth}></Route>
           <Route path="/admin" exact component={Admin}></Route>
-          <Route path="/profile" exact component={Profile}></Route>
+          <Route path="/profile/:id" exact component={Profile}></Route>
           <Route path="/" exact component={Home}></Route>
         </Switch>
       </Container>
