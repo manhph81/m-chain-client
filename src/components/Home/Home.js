@@ -7,8 +7,6 @@ import FormFind from '../Form/FormFind';
 
 
 const Home = () => {
-    const [currentId, setCurrentId] = useState(0);
-
     const transaction = useSelector((state) => state?.transaction);
 
     return (
@@ -19,7 +17,7 @@ const Home = () => {
                         {!transaction.length ? <ProductDetail transaction={transaction} /> : null}
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <FormFind currentId={currentId} setCurrentId={setCurrentId} />
+                        <FormFind/>
                     </Grid>
                 </Grid>
             </Container>

@@ -6,7 +6,7 @@ import QrReader from 'react-qr-reader';
 import useStyles from './styles';
 import { getTransaction  } from '../../actions/transaction';
 
-const FormFind = () => {
+const FormFind =  () => {
   const [productData, setProductData] = useState({ content: ''});
   const [isShow, setIsShow] =  useState(0);
   const dispatch = useDispatch();

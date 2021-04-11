@@ -122,12 +122,17 @@ export default function CustomizedMenus() {
               </StyledMenuItem>
             : null 
           }
-          <StyledMenuItem component={Link} to={ {pathname:`/profile/${user?.result?._id}`} } >
-            <ListItemIcon>
-              <PersonPinIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Profile" />
-          </StyledMenuItem>
+          {
+            user ? 
+              <StyledMenuItem component={Link} to={ {pathname:`/profile/${user?.result?._id}`} } >
+                <ListItemIcon>
+                  <PersonPinIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Profile" />
+              </StyledMenuItem>
+            : null 
+          }
+          
 
       </StyledMenu>
     </div>
