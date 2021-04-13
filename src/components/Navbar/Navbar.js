@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
-import memories from '../../images/memories.png';
+import memories from '../../images/avt.jpg';
 import useStyles from './styles'
 import { useDispatch } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom'
@@ -51,7 +51,8 @@ const Navbar = () => {
             <Toolbar className={classes.toolbar}>
                 {user ? (
                     <div className={classes.profile}>
-                        <Avatar className={classes.purple} alt={user?.result?.acName} src={user?.result?.imageUrl}>{user?.result?.acName?.charAt(0)}</Avatar>
+                        {/* <Avatar className={classes.purple} alt={user?.result?.acName} src={user?.result?.acSelectedFile}>{user?.result?.acName?.charAt(0)}</Avatar> */}
+                        <Avatar className={classes.purple} alt={user?.result?.acName} src={user?.result?.acSelectedFile}>{user?.result?.acSelectedFile}</Avatar>
                         <Typography  className={classes.userName} variant="h6" align="center">{user?.result?.acName}</Typography>
                         <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}> Log out</Button>
                     </div>

@@ -17,6 +17,7 @@ const FormProfile = () => {
     if (user?.result?._id === 0) {
       // await dispatch(createPost({...postData }));
     } else {
+      // console.log('submit')
       await dispatch(updateUser(user?.result?._id, {...user }));
     }
   };

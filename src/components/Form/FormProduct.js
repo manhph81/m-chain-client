@@ -10,7 +10,7 @@ import { getPosts } from '../../actions/posts'
 
 
 const FormProduct = ({ currentId, setCurrentId }) => {
-  const [productData, setProductData] = useState({ productName: '', productGarden: '', productPackaging: '',productUsing:'', productPreservation:'',productComposition: '', productType :'',productSelectedFile: '', productURL:'', productPlace:'', productOwnerId :'', productOwner :'' });
+  const [productData, setProductData] = useState({ productName: '', productGarden: '', productPackaging: '',productUsing:'', productPreservation:'',productComposition: '', productType :'',productSelectedFile: '', productPlace:'', productOwnerId :'', productOwner :'' });
   const product = useSelector((state) => (currentId ? state.products.find((message) => message._id === currentId) : null));
   const gardens = useSelector((state)=>  state?.posts)
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const FormProduct = ({ currentId, setCurrentId }) => {
       window.location.reload()
       clear();
     } else {
-      await dispatch(updateProducts(currentId, {...productData, productOwner : user?.result?.acName, productOwnerId : user?.result?._id}));
+      await dispatch(updateProducts(currentId, {...productData,productPlace:  user?.result?.acType, productOwner : user?.result?.acName, productOwnerId : user?.result?._id}));
       clear();
     }
     
