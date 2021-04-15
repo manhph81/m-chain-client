@@ -50,7 +50,6 @@ export const createTransactionB2B = (product, user) => async (dispatch) => {
   try {
     var transaction = {product: product, user: user}
     const { data } = await api.createTransactionB2B(transaction);
-    console.log(data)
     if(data?.message) {
       window.alert(data?.message)
     }else{
