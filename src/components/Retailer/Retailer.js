@@ -18,10 +18,13 @@ const Retailer = () => {
         <Grow in>
             <Container>
                 <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12} sm={7}>
+                    <Grid item xs={12} sm={2}>
+                        {/* <FormFind currentId={currentId} setCurrentId={setCurrentId} /> */}
+                    </Grid>
+                    <Grid item xs={12} sm={8}>
                         <Products setCurrentId={setCurrentId} />
                     </Grid>
-                    <Grid item xs={12} sm={4}>
+                    <Grid item xs={12} sm={2}>
                         {/* <FormFind currentId={currentId} setCurrentId={setCurrentId} /> */}
                     </Grid>
                 </Grid>

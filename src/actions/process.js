@@ -36,7 +36,6 @@ export const createProcess = (post) => async (dispatch) => {
  
   try {
     const { data } = await api.createProcess(post);
-    console.log(data)
     if(data?.message) {
       window.alert(data?.message)
     }else{

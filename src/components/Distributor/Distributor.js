@@ -23,10 +23,13 @@ const Distributor = () => {
             <Container>
                 <Grid container spacing={2} >
                     <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
+                        <Grid item xs={12} sm={2}>
+                            {/* <FormProduct currentId={currentId} setCurrentId={setCurrentId}  /> */}
+                        </Grid>
+                        <Grid item xs={12} sm={8}>
                             <Products setCurrentId={setCurrentId} />
                         </Grid>
-                        <Grid item xs={12} sm={4}>
+                        <Grid item xs={12} sm={2}>
                             {/* <FormProduct currentId={currentId} setCurrentId={setCurrentId}  /> */}
                         </Grid>
                     </Grid>

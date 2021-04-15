@@ -36,9 +36,13 @@ const Products = ({ setCurrentId, setisShow, setproId }) => {
   
   return (
     <Grid container spacing={2}>
+      {
+        user?.result?.acType ==="Manufacturer" ? null : 
         <Button onClick={switchMode} color="secondary" type="submit" fullWidth variant="contained" className={classes.submit}>
           { isOwner ? 'Go to buy Products': "See My Products"}
         </Button>
+      }
+        
 
       {
         isOwner ? (
