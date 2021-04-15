@@ -64,14 +64,13 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId, owner, 
     setAnchorEl(null);
   };
 
-  const buyProduct = (e) => {
+  const buyProduct = async (e) => {
     e.preventDefault();
     if (id === 0) {
       // dispatch(createPost({...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
     } else {
-      dispatch(createTransactionB2B(product, user?.result))
-      dispatch(updateProducts(id, { productOwnerId : user?.result?._id, productOwner : user?.result?.acName,  productPlace : user?.result?.acType} ))
-      window.alert('Buy success')
+      await dispatch(createTransactionB2B(product, user?.result))
+      await dispatch(updateProducts(id, { productOwnerId : user?.result?._id, productOwner : user?.result?.acName,  productPlace : user?.result?.acType} ))
       window.location.reload()  
     }
     
