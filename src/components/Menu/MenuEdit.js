@@ -69,6 +69,8 @@ export default function MenuEdit({setCurrentId, id, setisShow, setproId, owner, 
     if (id === 0) {
       // dispatch(createPost({...postData, gardenCreatedByName : user?.result?.acName, gardenCreatedBy: user?.result?._id }));
     } else {
+      const enteredPrivatekey = prompt('Please enter your privatekey')
+      const enteredPublickey = prompt('Please enter owner publickey')
       await dispatch(createTransactionB2B(product, user?.result))
       window.location.reload()  
     }

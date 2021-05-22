@@ -64,8 +64,9 @@ const Products = ({ setCurrentId, setisShow, setproId }) => {
           <>
               {!products.length ? <CircularProgress /> : (
                 <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+                 
                   {products.map((product) => (
-                    user?.result?._id !== product.productOwnerId && product.productPlace === productLoad ?
+                    user?.result?._id !== product.productOwnerId && (product.productPlace === productLoad || product.productPlace ===  user?.result?.acType) ?
                       <Grid key={product._id} item xs={12} sm={6} md={6}>
                         <Product product={product} setCurrentId={setCurrentId} setisShow={setisShow} setproId={setproId}/>
                       </Grid>

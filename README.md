@@ -25,10 +25,13 @@ npm i jwt-decode react-google-login
 npm i qrcode
 npm i react-qr-reader
 
+
 # Server
 npm init -y
 npm i body-parser cors express mongoose nodemon
 npm i bcryptjs jsonwebtoken
+npm install bigchaindb-driver
+
 
 file package.json add:
 

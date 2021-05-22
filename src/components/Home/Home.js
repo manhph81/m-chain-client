@@ -8,6 +8,8 @@ import FormFind from '../Form/FormFind';
 
 const Home = () => {
     const transaction = useSelector((state) => state?.transaction);
+    // const transaction = useSelector((state) => state);
+    // console.log(transaction)
 
     return (
         <Grow in>

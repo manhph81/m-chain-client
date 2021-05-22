@@ -24,16 +24,16 @@ const Product = ({ product, setCurrentId, setisShow, isShow, setproId }) => {
       </div>
 
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2">Thành phần: {product.productComposition?.map((composition) => `#${composition} `)}</Typography>
+        <Typography variant="body2" color="textSecondary" component="h2">Composition: {product.productComposition?.map((composition) => `#${composition} `)}</Typography>
       </div>
 
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{product.productName}</Typography>
 
       <CardContent>
-      <Typography variant="body2" color="textSecondary" component="p">Loại: {product.productType}</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">Cách sử dụng: {product.productPackaging}</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">Cách đóng gói: {product.productUsing}</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">Cách bảo quản: {product.productPreservation}</Typography>
+      <Typography variant="body2" color="textSecondary" component="p">Type: {product.productType}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Packaging: {product.productPackaging}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Using: {product.productUsing}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Preservation: {product.productPreservation}</Typography>
         <br/>
           {product.productURL ? (
             <a href={product.productURL} download>

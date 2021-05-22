@@ -43,7 +43,7 @@ const FormProcess = ({ productId }) => {
     return (
       <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-          <Typography variant="h6">Quy trình sản xuất</Typography>
+          <Typography variant="h6">Process</Typography>
           <TextField name="processName" variant="outlined" label="Name" fullWidth value={processData?.processName} onChange={handleChange} />
 
           <TextField name="processDetail" variant="outlined" label="Detail" fullWidth multiline rows={4} value={processData?.processDetail} onChange={handleChange} />
