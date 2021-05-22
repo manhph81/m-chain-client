@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import useStyles from './styles';
 import { getProduct } from '../../../actions/products';
+import { getPost } from '../../../actions/posts';
 
 const Accordion = withStyles({
   root: {
@@ -71,9 +72,14 @@ const ProductDetail = ({ transaction }) => {
       setProcess(transaction?.process?.shift())
       setisShow(true)
     }
+    if(process?.Supplier){
+      dispatch(getPost(process?.Supplier))
+    }
   });
 
   var product = useSelector((state) => state.products);
+  var post = useSelector((state) => state.posts);
+
   if(!isShow){
     return null
   }else{
@@ -110,8 +116,8 @@ const ProductDetail = ({ transaction }) => {
             <AccordionDetails>
               <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">Name: {process?.Supplier}</Typography>
-                {/* <Typography variant="body2" color="textSecondary" component="p">Detail: {pro?.processDetail}</Typography>
-                <Typography variant="body2" color="textSecondary" component="p">CreatedAt: {pro?.processCreateAt}</Typography> */}
+                <Typography variant="body2" color="textSecondary" component="p">Place: {post?.gardenAddress}</Typography>
+                <Typography variant="body2" color="textSecondary" component="p">Owner: {post?.gardenOwner}</Typography>
               </CardContent> 
 
             </AccordionDetails>
@@ -120,6 +126,17 @@ const ProductDetail = ({ transaction }) => {
         <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
             <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
               <Typography>Manufacturer</Typography>
+            </AccordionSummary>
+            <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Name: Manu M</Typography>
+              </AccordionDetails>
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Email: manufacturer@gmail.com</Typography>
+              </AccordionDetails>
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Adress: 14 Doan Uan, Da Nang</Typography>
+              </AccordionDetails>
             </AccordionSummary>
             <AccordionDetails>
               {
@@ -138,6 +155,18 @@ const ProductDetail = ({ transaction }) => {
             <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
               <Typography>Distributor</Typography>
             </AccordionSummary>
+            <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Name: Dis M</Typography>
+              </AccordionDetails>
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Email: distributor@gmail.com</Typography>
+              </AccordionDetails>
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Adress: 71 Ngu Hanh Son, Da Nang</Typography>
+              </AccordionDetails>
+              
+            </AccordionSummary>
             <AccordionDetails>
               {
                 process?.Distributor?.map((pro, id) => (
@@ -154,6 +183,17 @@ const ProductDetail = ({ transaction }) => {
         <Accordion square expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
             <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
               <Typography>Retailer</Typography>
+            </AccordionSummary>
+            <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Name: Re M</Typography>
+              </AccordionDetails>
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Email: retailer@gmail.com</Typography>
+              </AccordionDetails>
+              <AccordionDetails>
+                <Typography variant="body2" color="textSecondary" component="p">Adress: 14 Le Duan, Da Nang</Typography>
+              </AccordionDetails>
             </AccordionSummary>
             <AccordionDetails>
                 {process?.Retailer?.map((pro, id) => (
