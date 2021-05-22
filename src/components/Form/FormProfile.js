@@ -42,8 +42,8 @@ const FormProfile = () => {
         <Typography variant="h6">{user?.result?._id ? `Editing "${user?.result?.acName}"` : 'Profile'}</Typography>
         <TextField name="acName" variant="outlined" label="Name" fullWidth value={user?.result?.acName} onChange={handleChange} />
         <TextField name="email" variant="outlined" label="Email" fullWidth value={user?.result?.email} onChange={handleChange} />
-        <TextField name="acAdress" variant="outlined" label="Adress" fullWidth multiline rows={4} value={user?.result?.adress} onChange={handleChange} />
-        <TextField name="acPhone" variant="outlined" label="Phone" fullWidth multiline rows={4} value={user?.result?.phone} onChange={handleChange} />
+        <TextField name="acAdress" variant="outlined" label="Adress" fullWidth multiline rows={4} value={user?.result?.acAdress} onChange={handleChange} />
+        <TextField name="acPhone" variant="outlined" label="Phone" fullWidth multiline rows={4} value={user?.result?.acPhone} onChange={handleChange} />
         <TextField name="acPublicKey" disabled={true} variant="outlined" label="PublicKey" fullWidth multiline rows={4} value={ user?.result?.acPublicKey} />
         <TextField name="acPrivateKey" disabled={true} variant="outlined" label="PrivateKey" fullWidth multiline rows={4} value={user?.result?.acPrivateKey}  />
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setUser({ ...user, acSelectedFile: base64 })} /></div>

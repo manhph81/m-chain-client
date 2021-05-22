@@ -10,7 +10,7 @@ import { createProcess } from '../../actions/process';
 
 const FormProcess = ({ productId }) => {
   const user = JSON.parse(localStorage.getItem('profile'))
-  const [processData, setProcessData] = useState({ processName: '', processDetail: '', processType: '',processSelectedFile:'' });
+  const [processData, setProcessData] = useState({ processName: '', processDetail: '', processType: '',processSelectedFile:'', processPlace:'' });
   const dispatch = useDispatch();
   
   const classes = useStyles();
@@ -26,7 +26,7 @@ const FormProcess = ({ productId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(productId!==0){
-      await dispatch(createProcess({...processData, processOwner : user?.result?.acName, processOwnerId : user?.result?._id, processType : user?.result?.acType , productId:productId }));
+      await dispatch(createProcess({...processData, processOwner : user?.result?.acName, processOwnerId : user?.result?._id, processType : user?.result?.acType , productId:productId, processPlace:user?.result?.acAdress }));
       clear();
     }
   };

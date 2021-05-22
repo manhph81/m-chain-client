@@ -127,17 +127,6 @@ const ProductDetail = ({ transaction }) => {
             <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
               <Typography>Manufacturer</Typography>
             </AccordionSummary>
-            <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Name: Manu M</Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Email: manufacturer@gmail.com</Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Adress: 14 Doan Uan, Da Nang</Typography>
-              </AccordionDetails>
-            </AccordionSummary>
             <AccordionDetails>
               {
                 process?.Manufacturer?.map((pro, id) => (
@@ -145,6 +134,7 @@ const ProductDetail = ({ transaction }) => {
                     <Typography variant="body2" color="textSecondary" component="p">Name: {pro?.processName}</Typography>
                     <Typography variant="body2" color="textSecondary" component="p">Detail: {pro?.processDetail}</Typography>
                     <Typography variant="body2" color="textSecondary" component="p">CreatedAt: {pro?.processCreateAt}</Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">Place: {pro?.processPlace}</Typography>
                   </CardContent>
               )) 
               }
@@ -155,18 +145,6 @@ const ProductDetail = ({ transaction }) => {
             <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
               <Typography>Distributor</Typography>
             </AccordionSummary>
-            <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Name: Dis M</Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Email: distributor@gmail.com</Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Adress: 71 Ngu Hanh Son, Da Nang</Typography>
-              </AccordionDetails>
-              
-            </AccordionSummary>
             <AccordionDetails>
               {
                 process?.Distributor?.map((pro, id) => (
@@ -174,6 +152,7 @@ const ProductDetail = ({ transaction }) => {
                     <Typography variant="body2" color="textSecondary" component="p">Name: {pro?.processName}</Typography>
                     <Typography variant="body2" color="textSecondary" component="p">Detail: {pro?.processDetail}</Typography>
                     <Typography variant="body2" color="textSecondary" component="p">CreatedAt: {pro?.processCreateAt}</Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">Place: {pro?.processPlace}</Typography>
                   </CardContent> 
               )) 
               }
@@ -184,23 +163,13 @@ const ProductDetail = ({ transaction }) => {
             <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
               <Typography>Retailer</Typography>
             </AccordionSummary>
-            <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Name: Re M</Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Email: retailer@gmail.com</Typography>
-              </AccordionDetails>
-              <AccordionDetails>
-                <Typography variant="body2" color="textSecondary" component="p">Adress: 14 Le Duan, Da Nang</Typography>
-              </AccordionDetails>
-            </AccordionSummary>
             <AccordionDetails>
                 {process?.Retailer?.map((pro, id) => (
                     <CardContent key={id}>
                       <Typography variant="body2" color="textSecondary" component="p">Name: {pro?.processName}</Typography>
                       <Typography variant="body2" color="textSecondary" component="p">Detail: {pro?.processDetail}</Typography>
                       <Typography variant="body2" color="textSecondary" component="p">CreatedAt: {pro?.processCreateAt}</Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">CreatedAt: {pro?.processPlace}</Typography>
                     </CardContent> 
                 )) }
             </AccordionDetails>

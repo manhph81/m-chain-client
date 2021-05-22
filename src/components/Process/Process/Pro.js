@@ -26,7 +26,8 @@ const Pro = ({ pro }) => {
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">Detail: {pro.processDetail}</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">Loại: {pro.processType}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Type: {pro.processType}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">Place: {pro.processPlace}</Typography>
       </CardContent>
 
     </Card>
