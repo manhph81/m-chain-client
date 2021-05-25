@@ -66,10 +66,10 @@ const ProductDetail = ({ transaction }) => {
   
 
   useEffect(() => {
-    var productId = transaction?.product?.shift()?.data
+    var productId = transaction?.product
     if(productId){
       dispatch(getProduct(productId))
-      setProcess(transaction?.process?.shift())
+      setProcess(transaction?.process.metadata)
       setisShow(true)
     }
     if(process?.Supplier){
